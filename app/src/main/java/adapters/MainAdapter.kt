@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.card_color.view.*
 import models.ColorData
 
 
-class MainAdapter(): RecyclerView.Adapter<MainAdapter.ColorViewHolder>(){
+class MainAdapter(var context: Context): RecyclerView.Adapter<MainAdapter.ColorViewHolder>(){
 
     private var colorDataList = ArrayList<ColorData>()
 
@@ -29,11 +30,15 @@ class MainAdapter(): RecyclerView.Adapter<MainAdapter.ColorViewHolder>(){
 
         private val colorView = view.v_color_preview
         private val colorName = view.tv_color_name
+        private var currentView = view
 
 
         fun binding(colorData: ColorData){
             colorView.setBackgroundColor(Color.parseColor(colorData.color))
             colorName.text = colorData.name
+            this.currentView.setOnClickListener {
+                Toast.makeText(context,"My name is ${colorData.name}",Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

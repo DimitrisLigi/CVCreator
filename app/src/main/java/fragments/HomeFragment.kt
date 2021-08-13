@@ -28,7 +28,7 @@ class HomeFragment : Fragment() {
 
         rv_home.apply {
             layoutManager = LinearLayoutManager(context)
-            mainAdapter = MainAdapter()
+            mainAdapter = MainAdapter(context)
             adapter = mainAdapter
             decor.setDrawable(AppCompatResources.getDrawable(fragmentActivity!!,
                 R.drawable.decor_line
