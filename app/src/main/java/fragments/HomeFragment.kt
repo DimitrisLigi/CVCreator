@@ -1,6 +1,7 @@
 package fragments
 
 import adapters.MainAdapter
+import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,11 +21,13 @@ import viewmodels.RecyclerViewViewModel
 
 class HomeFragment : Fragment() {
     private lateinit var mainAdapter: MainAdapter
+    private lateinit var mainViewModel: RecyclerViewViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val fragmentActivity = activity
         val decor = DividerItemDecoration(fragmentActivity,VERTICAL)
+        mainViewModel = ViewModelProvider(this).get(RecyclerViewViewModel::class.java)
 
         rv_home.apply {
             layoutManager = LinearLayoutManager(context)
@@ -46,11 +49,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun getData() {
-        val mainViewModel = ViewModelProvider(this).get(RecyclerViewViewModel::class.java)
-        mainViewModel.getRecyclerColorData().observe(this.viewLifecycleOwner, {
+        mainViewModel.listOfColorData.observe(this.viewLifecycleOwner, {
             if (it != null) {
-//                mainAdapter.setColorListData(it.data as ArrayList<ColorData>)
-//                mainAdapter.notifyDataSetChanged()
                 mainAdapter.apply {
                     setColorListData(it.data as ArrayList<ColorData>)
                     notifyDataSetChanged()
@@ -59,7 +59,12 @@ class HomeFragment : Fragment() {
                 Toast.makeText(context, "Error getting the data", Toast.LENGTH_SHORT).show()
             }
         })
-        mainViewModel.makeApiCall()
+    }
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mainViewModel.cancelJobs()
     }
 
 }

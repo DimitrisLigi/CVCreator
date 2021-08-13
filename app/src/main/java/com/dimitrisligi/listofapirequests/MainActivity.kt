@@ -33,14 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setTheBottomNavMenu() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment?
         val navController = navHostFragment!!.navController
-
         setupActionBarWithNavController(navController)
         bottomNavigationView.setupWithNavController(navController)
     }
-
-
 }

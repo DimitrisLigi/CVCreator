@@ -7,5 +7,5 @@ import utils.Constants
 
 interface ApiService {
     @GET(Constants.END_POINT_FOR_COLORS)
-    fun getTheListOfColors(): Call<ColorDomainModel>
+    suspend fun getTheListOfColors(): ColorDomainModel
 }
