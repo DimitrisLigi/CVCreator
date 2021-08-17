@@ -38,5 +38,12 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment!!.navController
         setupActionBarWithNavController(navController)
         bottomNavigationView.setupWithNavController(navController)
+        actionBar?.setDisplayShowHomeEnabled(false)
+    }
+
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

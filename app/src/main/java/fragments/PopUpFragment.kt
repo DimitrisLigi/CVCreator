@@ -15,9 +15,6 @@ class PopUpFragment(): DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         var rootView: View = inflater.inflate(R.layout.pop_up_color_details,container,false)
-
-
-
         return rootView
     }
 }

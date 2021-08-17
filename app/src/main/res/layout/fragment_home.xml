@@ -2,18 +2,32 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_constrain_layout"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.HomeFragment" >
+    tools:context="fragments.HomeFragment"
+    android:background="@color/facebook_darkest_blue"
+    android:padding="16dp">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_go_to_colors_fragm"
+        android:layout_width="141dp"
+        android:layout_height="117dp"
+        android:background="@drawable/home_buttons_shapes"
+        android:text="Go to Colors"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/recycler_view_item" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_get_users"
+        android:layout_width="141dp"
+        android:layout_height="117dp"
+        android:background="@drawable/home_buttons_shapes"
+        android:text="Get Users"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

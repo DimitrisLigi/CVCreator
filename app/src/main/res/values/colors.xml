@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    !--MINE COLORS--!
+    <color name="facebook_dark">#adb9d3</color>
+    <color name="facebook_darkest_blue">#3a5795</color>
+    <color name="facebook_dark_blue">#637bad</color>
+    <color name="facebook_grey_blue">#adb9d3</color>
+    <color name="facebook_white_blue">#edf0f5</color>
 </resources>
