@@ -5,8 +5,8 @@ import api.RetrofitBuilder
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
-import models.ColorDomainModel
-import java.util.*
+import models.colormodels.ColorDomainModel
+import models.usermodels.UserDomainModel
 
 object RepositoryApiRequests {
     private var job: CompletableJob? = null
@@ -21,6 +21,25 @@ object RepositoryApiRequests {
                         val colorModel = RetrofitBuilder.serviceApi.getTheListOfColors()
                         withContext(Main){
                             value = colorModel
+                            it.complete()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    fun getTheListOfUsersFromTheNet(): LiveData<UserDomainModel>{
+        job = Job()
+        return object: LiveData<UserDomainModel>(){
+            override fun onActive() {
+                super.onActive()
+                job?.let {
+                    CoroutineScope(IO+it).launch {
+                        val listOfUsers = RetrofitBuilder.serviceApi.getTheListOfUsers()
+                        withContext(Main){
+                            value = listOfUsers
                             it.complete()
                         }
                     }

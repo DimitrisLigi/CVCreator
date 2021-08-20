@@ -1,6 +1,6 @@
 package fragments
 
-import adapters.MainAdapter
+import adapters.ColorAdapter
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager.VERTICAL
 import com.dimitrisligi.listofapirequests.R
 import kotlinx.android.synthetic.main.fragment_colors.*
-import models.ColorData
+import models.colormodels.ColorData
 import viewmodels.RecyclerViewViewModel
 
 
 class ColorFragment : Fragment() {
-    private lateinit var mainAdapter: MainAdapter
+    private lateinit var colorAdapter: ColorAdapter
     private lateinit var mainViewModel: RecyclerViewViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -30,8 +30,8 @@ class ColorFragment : Fragment() {
 
         rv_home.apply {
             layoutManager = LinearLayoutManager(context)
-            mainAdapter = MainAdapter(context)
-            adapter = mainAdapter
+            colorAdapter = ColorAdapter(context)
+            adapter = colorAdapter
             decor.setDrawable(AppCompatResources.getDrawable(fragmentActivity!!,
                 R.drawable.decor_line
             )!!)
@@ -52,7 +52,7 @@ class ColorFragment : Fragment() {
     private fun getData() {
         mainViewModel.listOfColorData.observe(this.viewLifecycleOwner, {
             if (it != null) {
-                mainAdapter.apply {
+                colorAdapter.apply {
                     setColorListData(it.data as ArrayList<ColorData>)
                     notifyDataSetChanged()
                 }

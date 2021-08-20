@@ -10,10 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.dimitrisligi.listofapirequests.R
 import kotlinx.android.synthetic.main.card_color.view.*
-import models.ColorData
+import models.colormodels.ColorData
 
 
-class MainAdapter(var context: Context): RecyclerView.Adapter<MainAdapter.ColorViewHolder>(){
+class ColorAdapter(var context: Context): RecyclerView.Adapter<ColorAdapter.ColorViewHolder>(){
 
     private var colorDataList = ArrayList<ColorData>()
 
@@ -44,6 +44,7 @@ class MainAdapter(var context: Context): RecyclerView.Adapter<MainAdapter.ColorV
             }
         }
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.card_color,parent,false)
