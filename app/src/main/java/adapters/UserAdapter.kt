@@ -30,9 +30,9 @@ class UserAdapter(val context: Context) :RecyclerView.Adapter<UserAdapter.UserVi
             val sb = StringBuilder()
             val url = userData.avatar
 
-            sb.append(userData.firstName).append(userData.lastName)
+            sb.append(userData.firstName).append(" ").append(userData.lastName)
             //Full name
-            userFullName.text = sb.toString()
+            userFullName.text = sb
 
             //Email
             userEmail.text = userData.email

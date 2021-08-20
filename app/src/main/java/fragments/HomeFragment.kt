@@ -19,7 +19,8 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var view =  inflater.inflate(R.layout.fragment_home, container, false)
+        val view =  inflater.inflate(R.layout.fragment_home, container, false)
+
         view.btn_go_to_colors_fragm.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_colorsFragment)
         }
@@ -27,21 +28,5 @@ class HomeFragment : Fragment() {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_listOfUsersFragment)
         }
         return view
-    }
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        btn_go_to_colors_fragm.setOnClickListener {
-//
-//            val colorFragment = ColorFragment()
-//            val fragmentManager = activity?.supportFragmentManager
-//            val transaction = fragmentManager?.beginTransaction()
-//            transaction?.apply {
-//                replace(R.id.fragmentContainerView,colorFragment).addToBackStack(null).commit()
-//            }
-//
-//        }
     }
 }
