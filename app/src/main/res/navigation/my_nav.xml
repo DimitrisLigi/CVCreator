@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homeFragment_to_colorsFragment"
             app:destination="@id/colorsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_listOfUsersFragment"
+            app:destination="@id/listOfUsersFragment" />
     </fragment>
     <fragment
         android:id="@+id/bioFragment"
@@ -31,6 +34,15 @@
         tools:layout="@layout/fragment_colors">
         <action
             android:id="@+id/action_colorsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfUsersFragment"
+        android:name="fragments.ListOfUsersFragment"
+        android:label="fragment_list_of_users"
+        tools:layout="@layout/fragment_list_of_users" >
+        <action
+            android:id="@+id/action_listOfUsersFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

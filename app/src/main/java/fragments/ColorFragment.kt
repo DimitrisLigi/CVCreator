@@ -1,6 +1,7 @@
 package fragments
 
 import adapters.ColorAdapter
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -44,11 +45,10 @@ class ColorFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_colors, container, false)
-
-        return view
+        return inflater.inflate(R.layout.fragment_colors, container, false)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun getData() {
         mainViewModel.listOfColorData.observe(this.viewLifecycleOwner, {
             if (it != null) {
@@ -57,7 +57,7 @@ class ColorFragment : Fragment() {
                     notifyDataSetChanged()
                 }
             } else {
-                Toast.makeText(context, "Error getting the data", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Error getting the color data", Toast.LENGTH_SHORT).show()
             }
         })
     }

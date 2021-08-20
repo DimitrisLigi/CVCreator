@@ -1,5 +1,6 @@
 package adapters
 
+import android.content.Context
 import android.service.autofill.UserData
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,7 @@ import models.usermodels.UserDataFromDomainModel
 import models.usermodels.UserDomainModel
 import java.lang.StringBuilder
 
-class UserAdapter :RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
+class UserAdapter(val context: Context) :RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
     private var userList = ArrayList<UserDataFromDomainModel>()
 
@@ -28,6 +29,7 @@ class UserAdapter :RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
         fun binding(userData: UserDataFromDomainModel){
             val sb = StringBuilder()
             val url = userData.avatar
+
             sb.append(userData.firstName).append(userData.lastName)
             //Full name
             userFullName.text = sb.toString()
@@ -43,7 +45,6 @@ class UserAdapter :RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
                 .error(R.drawable.default_thumb)
                 .fallback(R.drawable.default_thumb)
                 .into(userAvatar)
-
         }
     }
 

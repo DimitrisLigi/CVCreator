@@ -23,6 +23,9 @@ class HomeFragment : Fragment() {
         view.btn_go_to_colors_fragm.setOnClickListener {
             Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_colorsFragment)
         }
+        view.btn_get_users.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_listOfUsersFragment)
+        }
         return view
     }
 

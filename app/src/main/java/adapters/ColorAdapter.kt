@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.card_color.view.*
 import models.colormodels.ColorData
 
 
-class ColorAdapter(var context: Context): RecyclerView.Adapter<ColorAdapter.ColorViewHolder>(){
+class ColorAdapter(val context: Context): RecyclerView.Adapter<ColorAdapter.ColorViewHolder>(){
 
     private var colorDataList = ArrayList<ColorData>()
 
