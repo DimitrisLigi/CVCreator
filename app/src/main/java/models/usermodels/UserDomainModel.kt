@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 
 data class UserDomainModel(
     @SerializedName("data")
-    val `data`: List<UserData>,
+    val `data`: List<UserDataFromDomainModel>,
     @SerializedName("page")
     val page: Int,
     @SerializedName("per_page")

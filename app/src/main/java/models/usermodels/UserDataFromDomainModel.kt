@@ -3,7 +3,7 @@ package models.usermodels
 
 import com.google.gson.annotations.SerializedName
 
-data class UserData(
+data class UserDataFromDomainModel(
     @SerializedName("avatar")
     val avatar: String,
     @SerializedName("email")
