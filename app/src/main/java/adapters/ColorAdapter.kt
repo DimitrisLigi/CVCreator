@@ -34,7 +34,7 @@ class ColorAdapter(val context: Context): RecyclerView.Adapter<ColorAdapter.Colo
             colorName.text = colorData.name
             val dialog = Dialog(context)
             dialog.setContentView(R.layout.pop_up_color_details)
-            this.currentView.setOnClickListener {
+            currentView.setOnClickListener {
                 val colorView = dialog.findViewById<View>(R.id.v_popup_color)
                 val colorName = dialog.findViewById<TextView>(R.id.tv_popup_name)
 
